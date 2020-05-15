@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/zhuxingpo/Downloads/simple_database/main.c
+stdio.h
+-
+stdlib.h
+-
+stdbool.h
+-
+string.h
+-
+

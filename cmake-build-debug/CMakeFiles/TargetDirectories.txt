@@ -1,0 +1,3 @@
+/Users/zhuxingpo/Downloads/simple_database/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/zhuxingpo/Downloads/simple_database/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/zhuxingpo/Downloads/simple_database/cmake-build-debug/CMakeFiles/simple_database.dir

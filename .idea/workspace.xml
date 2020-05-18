@@ -11,7 +11,15 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4b9edea-420a-44c2-a414-a894a1265f22" name="Default Changelist" comment="" />
+    <list default="true" id="b4b9edea-420a-44c2-a414-a894a1265f22" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/simple_database.dir/main.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/simple_database.dir/main.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/simple_database" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/simple_database" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +29,11 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1bvDseH7yWovil2cmJ8fWsj3woS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -29,7 +41,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RunManager">
     <configuration name="simple_database" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="simple_database" TARGET_NAME="simple_database" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="simple_database" RUN_TARGET_NAME="simple_database">
@@ -61,6 +75,8 @@
       <option name="presentableId" value="Default" />
       <updated>1589503881669</updated>
       <workItem from="1589503882955" duration="73000" />
+      <workItem from="1589504052758" duration="7273000" />
+      <workItem from="1589762372405" duration="1906000" />
     </task>
     <servers />
   </component>
@@ -68,21 +84,33 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1589503955266">
+    <state width="1398" height="219" key="GridCell.Tab.0.bottom" timestamp="1589765297488">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1589503955266" />
-    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1589503955264">
+    <state width="1398" height="191" key="GridCell.Tab.0.bottom/0.0.1440.827@0.0.1440.827" timestamp="1589525133137" />
+    <state width="1398" height="219" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1589765297488" />
+    <state width="1398" height="219" key="GridCell.Tab.0.center" timestamp="1589765297487">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1589503955264" />
-    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1589503955263">
+    <state width="1398" height="191" key="GridCell.Tab.0.center/0.0.1440.827@0.0.1440.827" timestamp="1589525133137" />
+    <state width="1398" height="219" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1589765297487" />
+    <state width="1398" height="219" key="GridCell.Tab.0.left" timestamp="1589765297487">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1589503955263" />
-    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1589503955265">
+    <state width="1398" height="191" key="GridCell.Tab.0.left/0.0.1440.827@0.0.1440.827" timestamp="1589525133136" />
+    <state width="1398" height="219" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1589765297487" />
+    <state width="1398" height="219" key="GridCell.Tab.0.right" timestamp="1589765297488">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1589503955265" />
+    <state width="1398" height="191" key="GridCell.Tab.0.right/0.0.1440.827@0.0.1440.827" timestamp="1589525133137" />
+    <state width="1398" height="219" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1589765297488" />
+    <state x="235" y="163" key="SettingsEditor" timestamp="1589504453760">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="235" y="163" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1589504453760" />
+    <state x="397" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1589762376649">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="397" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1589762376649" />
   </component>
 </project>

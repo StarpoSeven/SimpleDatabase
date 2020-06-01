@@ -13,10 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b4b9edea-420a-44c2-a414-a894a1265f22" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/simple_database.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/simple_database.dir/C.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/simple_database.dir/main.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/simple_database.dir/main.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/simple_database" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/simple_database" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +79,7 @@
       <workItem from="1590635203034" duration="8520000" />
       <workItem from="1590719028166" duration="9000" />
       <workItem from="1590729036489" duration="12778000" />
-      <workItem from="1590990129003" duration="6918000" />
+      <workItem from="1590990129003" duration="7669000" />
     </task>
     <servers />
   </component>
@@ -91,26 +87,26 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="119" key="GridCell.Tab.0.bottom" timestamp="1591000686061">
+    <state width="1398" height="344" key="GridCell.Tab.0.bottom" timestamp="1591000865974">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="191" key="GridCell.Tab.0.bottom/0.0.1440.827@0.0.1440.827" timestamp="1589525133137" />
-    <state width="1398" height="119" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1591000686061" />
-    <state width="1398" height="119" key="GridCell.Tab.0.center" timestamp="1591000686060">
+    <state width="1398" height="344" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1591000865974" />
+    <state width="1398" height="344" key="GridCell.Tab.0.center" timestamp="1591000865970">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="191" key="GridCell.Tab.0.center/0.0.1440.827@0.0.1440.827" timestamp="1589525133137" />
-    <state width="1398" height="119" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1591000686060" />
-    <state width="1398" height="119" key="GridCell.Tab.0.left" timestamp="1591000686060">
+    <state width="1398" height="344" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1591000865970" />
+    <state width="1398" height="344" key="GridCell.Tab.0.left" timestamp="1591000865968">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="191" key="GridCell.Tab.0.left/0.0.1440.827@0.0.1440.827" timestamp="1589525133136" />
-    <state width="1398" height="119" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1591000686060" />
-    <state width="1398" height="119" key="GridCell.Tab.0.right" timestamp="1591000686061">
+    <state width="1398" height="344" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1591000865968" />
+    <state width="1398" height="344" key="GridCell.Tab.0.right" timestamp="1591000865972">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="191" key="GridCell.Tab.0.right/0.0.1440.827@0.0.1440.827" timestamp="1589525133137" />
-    <state width="1398" height="119" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1591000686061" />
+    <state width="1398" height="344" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1591000865972" />
     <state x="235" y="163" key="SettingsEditor" timestamp="1589504453760">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

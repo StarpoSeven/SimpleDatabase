@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/zhuxingpo/Downloads/simple_database/main.c" "/Users/zhuxingpo/Downloads/simple_database/cmake-build-debug/CMakeFiles/simple_database.dir/main.c.o"
+  "/Users/zhuxingpo/Downloads/Course收藏夹/数据库构建零基础/simple_database/main.c" "/Users/zhuxingpo/Downloads/Course收藏夹/数据库构建零基础/simple_database/cmake-build-debug/CMakeFiles/simple_database.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

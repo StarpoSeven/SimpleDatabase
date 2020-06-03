@@ -1,4 +1,4 @@
-# Install script for directory: /Users/zhuxingpo/Downloads/simple_database
+# Install script for directory: /Users/zhuxingpo/Downloads/Course收藏夹/数据库构建零基础/simple_database
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/zhuxingpo/Downloads/simple_database/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/zhuxingpo/Downloads/Course收藏夹/数据库构建零基础/simple_database/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

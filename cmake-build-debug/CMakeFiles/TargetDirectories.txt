@@ -1,3 +1,3 @@
-/Users/zhuxingpo/Downloads/simple_database/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/zhuxingpo/Downloads/simple_database/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/zhuxingpo/Downloads/simple_database/cmake-build-debug/CMakeFiles/simple_database.dir
+/Users/zhuxingpo/Downloads/Course收藏夹/数据库构建零基础/simple_database/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/zhuxingpo/Downloads/Course收藏夹/数据库构建零基础/simple_database/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/zhuxingpo/Downloads/Course收藏夹/数据库构建零基础/simple_database/cmake-build-debug/CMakeFiles/simple_database.dir

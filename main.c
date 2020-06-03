@@ -72,19 +72,22 @@ typedef enum {
 
 //2
 //Part3-1
+
 #define COLUMN_USERNAME_SIZE 32
 #define COLUMN_EMAIL_SIZE 255
 typedef struct {
     uint32_t ID;
-    char username[COLUMN_USERNAME_SIZE];
-    char email[COLUMN_EMAIL_SIZE];
+    char username[COLUMN_USERNAME_SIZE + 1];//C语言字符串结尾，with a null character
+    char email[COLUMN_EMAIL_SIZE + 1];
 }Row;
 //Part3-1结束
 
 typedef enum {
     CONVERT_STATEMENT_SUCCESS,
     COVERT_STATEMENT_UNRECOGNIZED,
-    COVERT_STATEMENT_SYNTAX_ERROR
+    COVERT_NEGATIVE_ID,
+    COVERT_STATEMENT_SYNTAX_ERROR,
+    COVERT_STATEMENT_STRING_TOO_LONG
 } StatementCovertResult;
 
 typedef enum {
@@ -97,20 +100,49 @@ typedef struct {
     Row row_to_insert;
 }Statement;
 
+//Part4-1将Convert_Input_Statementh中 if(strncmp(buffer,"insert",6）修改成函数，去掉sscanf，换成stroke
+StatementCovertResult Prepare_Insert(InputBuffer* buffer_pointer,Statement* statement_pointer) {
+    statement_pointer->statementType = STATEMENT_INSERT;
+    char* keyword = strtok(buffer_pointer->buffer," ");
+    char* id_string = strtok(NULL," ");
+    char* username = strtok(NULL," ");
+    char* email = strtok(NULL," ");
+    if(id_string == NULL || username == NULL || email == NULL) {
+        return COVERT_STATEMENT_SYNTAX_ERROR;
+    }
+    int id = atoi(id_string);
+    if(id < 0) {
+        return COVERT_NEGATIVE_ID;
+    }
+    if(strlen(username) > COLUMN_USERNAME_SIZE) {
+        return COVERT_STATEMENT_STRING_TOO_LONG;
+    }
+    if(strlen(email) > COLUMN_EMAIL_SIZE) {
+        return COVERT_STATEMENT_STRING_TOO_LONG;
+    }
+
+    statement_pointer->row_to_insert.ID = id;
+    strcpy(statement_pointer->row_to_insert.username,username);
+    strcpy(statement_pointer->row_to_insert.email,email);
+    return CONVERT_STATEMENT_SUCCESS;
+}
 
 StatementCovertResult Convert_Input_Statement(InputBuffer* buffer_pointer,Statement* statement_pointer) {
     if(strncmp(buffer_pointer->buffer,"insert",6) == 0) {
-        statement_pointer->statementType = STATEMENT_INSERT;
-        //Part3-1中添加
-        int args_assigned = sscanf(buffer_pointer->buffer,"insert %d %s %s",
-                &(statement_pointer->row_to_insert.ID),
-                statement_pointer->row_to_insert.username,
-                statement_pointer->row_to_insert.email);
-        if(args_assigned < 3){
-            return COVERT_STATEMENT_SYNTAX_ERROR;
-        }
-        //Part3-1结束
-        return CONVERT_STATEMENT_SUCCESS;
+        //Part4-1将下面部分写成Prepare_Insert函数
+//        statement_pointer->statementType = STATEMENT_INSERT;
+//        //Part3-1中添加
+//        int args_assigned = sscanf(buffer_pointer->buffer,"insert %d %s %s",
+//                &(statement_pointer->row_to_insert.ID),
+//                statement_pointer->row_to_insert.username,
+//                statement_pointer->row_to_insert.email);
+//        if(args_assigned < 3){
+//            return COVERT_STATEMENT_SYNTAX_ERROR;
+//        }
+//        //Part3-1结束
+//        return CONVERT_STATEMENT_SUCCESS;
+            return Prepare_Insert(buffer_pointer,statement_pointer);
+        //Part4-1结束
     }
     if(strcmp(buffer_pointer->buffer,"select") == 0) {
         statement_pointer->statementType = STATEMENT_SELECT;
@@ -251,9 +283,16 @@ ExecuteResult Execute_Statement_After_Converting(Statement* statement_pointer, T
             return(Execute_Insert_Statement(statement_pointer,table_pointer));
         case(STATEMENT_SELECT):
             return Execute_Select_Statement(table_pointer);
+
     }
 }
+/*
+ * Part4在Convert_Input_Statement函数中使用的是scanf函数，如果输入的参数超过了buffer长度，会造成溢出，
+ * 在拷贝进Row中时，需要对string的长度进行确认，因此需要通过space划分input，使用strtok（）
+ *
+ */
 
+//1:修改Part2中的Convert_Input_Statement函数
 
 int main(int argc, char* argv[]) {
     Table* table_pointer = Create_Table();
@@ -275,6 +314,9 @@ int main(int argc, char* argv[]) {
         switch(Convert_Input_Statement(buffer_pointer,&statement)) {
             case(CONVERT_STATEMENT_SUCCESS):
                 break;
+            case(COVERT_STATEMENT_STRING_TOO_LONG):
+                printf("String is too long\n");
+                continue;
             case(COVERT_STATEMENT_SYNTAX_ERROR):
                 printf("Syntax error. Could not parse statement\n");
                 continue;

@@ -13,22 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b4b9edea-420a-44c2-a414-a894a1265f22" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/simple_database.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/simple_database.dir/C.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/simple_database.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/simple_database.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/simple_database.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/simple_database.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/simple_database.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/simple_database.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/simple_database.dir/main.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/simple_database.dir/main.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/simple_database" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/simple_database" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/simple_database.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/simple_database.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +81,9 @@
       <workItem from="1590719028166" duration="9000" />
       <workItem from="1590729036489" duration="12778000" />
       <workItem from="1590990129003" duration="7669000" />
-      <workItem from="1591182719840" duration="3811000" />
+      <workItem from="1591182719840" duration="10507000" />
+      <workItem from="1591669648304" duration="80000" />
+      <workItem from="1592048104013" duration="4134000" />
     </task>
     <servers />
   </component>
@@ -105,38 +91,38 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="193" key="GridCell.Tab.0.bottom" timestamp="1591186598151">
+    <state width="1398" height="248" key="GridCell.Tab.0.bottom" timestamp="1592052287565">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="191" key="GridCell.Tab.0.bottom/0.0.1440.827@0.0.1440.827" timestamp="1589525133137" />
-    <state width="1398" height="193" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1591186598151" />
-    <state width="1398" height="193" key="GridCell.Tab.0.center" timestamp="1591186598150">
+    <state width="1398" height="248" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1592052287565" />
+    <state width="1398" height="248" key="GridCell.Tab.0.center" timestamp="1592052287563">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="191" key="GridCell.Tab.0.center/0.0.1440.827@0.0.1440.827" timestamp="1589525133137" />
-    <state width="1398" height="193" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1591186598150" />
-    <state width="1398" height="193" key="GridCell.Tab.0.left" timestamp="1591186598150">
+    <state width="1398" height="248" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1592052287563" />
+    <state width="1398" height="248" key="GridCell.Tab.0.left" timestamp="1592052287562">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="191" key="GridCell.Tab.0.left/0.0.1440.827@0.0.1440.827" timestamp="1589525133136" />
-    <state width="1398" height="193" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1591186598150" />
-    <state width="1398" height="193" key="GridCell.Tab.0.right" timestamp="1591186598151">
+    <state width="1398" height="248" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1592052287562" />
+    <state width="1398" height="248" key="GridCell.Tab.0.right" timestamp="1592052287565">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="191" key="GridCell.Tab.0.right/0.0.1440.827@0.0.1440.827" timestamp="1589525133137" />
-    <state width="1398" height="193" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1591186598151" />
+    <state width="1398" height="248" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1592052287565" />
     <state x="235" y="163" key="SettingsEditor" timestamp="1589504453760">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="235" y="163" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1589504453760" />
-    <state x="397" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1591182743388">
+    <state x="397" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1592048104646">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="397" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.827@0.0.1440.827" timestamp="1590990129848" />
-    <state x="397" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1591182743388" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1590729095845">
+    <state x="397" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1592048104646" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1592050410554">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1590729095845" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1592050410554" />
   </component>
 </project>

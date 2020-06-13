@@ -17,4 +17,10 @@ string.h
 -
 stdint.h
 -
+fcntl.h
+-
+unistd.h
+-
+errno.h
+-
 

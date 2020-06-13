@@ -3,6 +3,10 @@
 #include <stdbool.h>
 #include <string.h>
 #include <stdint.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <errno.h>
+
 
 /*
  * Part 1 : 创建出整个基本骨架，能够接受用户输入的命令
@@ -175,35 +179,25 @@ StatementCovertResult Convert_Input_Statement(InputBuffer* buffer_pointer,Statem
 //1，行定义在Part2的2中，下面是定义table，同时添加创建table的函数，修改Convert_Statement
 
 #define TABLE_MAX_PAGES 100
+
+
+//5-1中添加新的数据结构
+typedef struct {
+    int file_descriptor;
+    uint32_t file_length;
+    void* pages[TABLE_MAX_PAGES];
+}Pager;
+//5-1结束
+
 typedef struct {
     uint32_t row_total;
-    void* pages[TABLE_MAX_PAGES];
+    Pager* pager;//5-1中添加
 }Table;
 
-Table* Create_Table() {
-    Table* table_pointer = (Table*) malloc(sizeof(Table));
-    table_pointer->row_total = 0;
-    for(uint32_t i = 0; i < TABLE_MAX_PAGES; i++) {
-        table_pointer->pages[i] = NULL;
-    }
-    return table_pointer;
-}
 
-void Free_Table(Table* table_pointer) {
-    for(int i = 0; table_pointer->pages[i]; i++) {
-        free(table_pointer->pages[i]);
-    }
-    free(table_pointer);
-}
 
-MetaResult Do_Meta_Command(InputBuffer* buffer_pointer,Table* table_pointer) {
-    if(strcmp(buffer_pointer->buffer,".exit") == 0) {
-        Close_Buffer(buffer_pointer);
-        Free_Table(table_pointer);
-        exit(EXIT_SUCCESS);
-    } else
-        return META_COMMAND_UNRECOGNIZED;
-}
+
+
 
 //2
 #define size_of_attribute(Struct,Attribute) sizeof(((Struct*)0)->Attribute)
@@ -219,13 +213,60 @@ const uint32_t ROW_SIZE = ID_SIZE + USERNAME_SIZE + EMAIL_SIZE;
 const uint32_t PAGE_SIZE = 4096;
 const uint32_t ROWS_PER_PAGE = PAGE_SIZE / ROW_SIZE;
 
+
+//5-1
+Pager* Create_pager(const char* filename) {
+    int fd = open(filename, O_RDWR | O_CREAT, S_IWUSR | S_IRUSR);
+    if(fd == -1) {
+        printf("Unable to open file\n");
+        exit(EXIT_FAILURE);
+    }
+
+    off_t file_length = lseek(fd,0,SEEK_END);
+    Pager* pager_pointer = malloc(sizeof(Pager));
+    pager_pointer->file_descriptor = fd;
+    pager_pointer->file_length = file_length;
+
+    for(uint32_t i = 0; i < TABLE_MAX_PAGES; i++) {
+        pager_pointer->pages[i] = NULL;
+    }
+    return pager_pointer;
+}
+Table* Create_Table(const char* filename) {
+    Table* table_pointer = (Table*) malloc(sizeof(Table));
+    table_pointer->pager = Create_pager(filename);
+    table_pointer->row_total = table_pointer->pager->file_length / ROW_SIZE;
+    return table_pointer;
+}
+void* Get_page(Pager* pager, uint32_t page_num) {
+    if(page_num > TABLE_MAX_PAGES) {
+        printf("Tried to fetch page number out of bounds. %d > %d",page_num,TABLE_MAX_PAGES);
+        exit(EXIT_FAILURE);
+    }
+    if(pager->pages[page_num] == NULL) {
+        uint32_t page_num_file = pager->file_length / PAGE_SIZE;
+        if(pager->file_length % PAGE_SIZE) {
+            page_num_file += 1;
+        }
+        void* page_load_data = malloc(PAGE_SIZE);
+        if(page_num <= page_num_file) {
+            lseek(pager->file_descriptor,page_num*PAGE_SIZE,SEEK_SET);
+            ssize_t bytes_read = read(pager->file_descriptor,page_load_data,PAGE_SIZE);
+            if(bytes_read == -1) {
+                printf("Error reading file:%d\n",errno);
+                exit(EXIT_FAILURE);
+            }
+        }
+        pager->pages[page_num] = page_load_data;
+    }
+    return pager->pages[page_num];
+}
+//5-1结束
+
 void* Row_Slot(Table* table_pointer,uint32_t row_number) {
 
     uint32_t page_number = row_number / ROWS_PER_PAGE;
-    void* page = table_pointer->pages[page_number];
-    if(table_pointer->pages[page_number] == 0) {
-        page = table_pointer->pages[page_number] = malloc(PAGE_SIZE);
-    }
+    void* page = Get_page(table_pointer->pager,page_number);
     uint32_t row_offset = row_number % ROWS_PER_PAGE;
     uint32_t bytes_offset = row_offset * ROW_SIZE;
     return page + bytes_offset;
@@ -234,8 +275,10 @@ void* Row_Slot(Table* table_pointer,uint32_t row_number) {
 //3
 void serialize(Row* row_to_insert,void* row_location_in_table) {
     memcpy(row_location_in_table+ID_OFFSET,&(row_to_insert->ID),ID_SIZE);
-    memcpy(row_location_in_table+USERNAME_OFFSET,&(row_to_insert->username),USERNAME_SIZE);
-    memcpy(row_location_in_table+EMAIL_OFFSET,&(row_to_insert->email),EMAIL_SIZE);
+//    memcpy(row_location_in_table+USERNAME_OFFSET,&(row_to_insert->username),USERNAME_SIZE);
+//    memcpy(row_location_in_table+EMAIL_OFFSET,&(row_to_insert->email),EMAIL_SIZE);
+    strncpy(row_location_in_table+USERNAME_OFFSET,row_to_insert->username,USERNAME_SIZE);
+    strncpy(row_location_in_table+EMAIL_OFFSET,row_to_insert->email,EMAIL_SIZE);
 }
 
 void desreialize(void* row_location_in_table,Row* row_to_show) {
@@ -250,6 +293,70 @@ typedef enum {
 }ExecuteResult;
 
 const uint32_t TABLE_MAX_ROWS = ROWS_PER_PAGE * TABLE_MAX_PAGES;
+
+//5-2
+void page_flush(Pager* pager,uint32_t page_num, uint32_t size ) {
+    if(pager->pages[page_num] == NULL) {
+        printf("Tried to flush null page\n");
+        exit(EXIT_FAILURE);
+    }
+
+    off_t offset = lseek(pager->file_descriptor,page_num*PAGE_SIZE,SEEK_SET);
+    if(offset == -1) {
+        printf("Error seeking: %d\n",errno);
+        exit(EXIT_FAILURE);
+    }
+    ssize_t bytes_written = write(pager->file_descriptor,pager->pages[page_num],size);
+    if(bytes_written == -1) {
+        printf("Error writing:%d\n",errno);
+        exit(EXIT_FAILURE);
+    }
+}
+
+void db_close(Table* table) {
+    uint32_t pages_full = table->row_total / ROWS_PER_PAGE;
+    Pager* pager = table->pager;
+    for(int i = 0; i < pages_full; i++) {
+        if(pager->pages[i] == NULL) {
+            continue;
+        }
+        page_flush(pager,i,PAGE_SIZE);
+        free(pager->pages[i]);
+        pager->pages[i] = NULL;
+    }
+    uint32_t additional_rows = table->row_total % ROWS_PER_PAGE;
+    if(additional_rows > 0) {
+        uint32_t page_num = pages_full;
+        if(pager->pages[page_num] != NULL) {
+            page_flush(pager,page_num,additional_rows * ROW_SIZE);
+            free(pager->pages[page_num]);
+            pager->pages[page_num] = NULL;
+        }
+    }
+    if(close(pager->file_descriptor) == -1) {
+        printf("Error closing db file.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    for(uint32_t i = 0; i < TABLE_MAX_PAGES; i++) {
+        void* page = pager->pages[i];
+        if(page != NULL) {
+            free(page);
+            pager->pages[i] = NULL;
+        }
+    }
+    free(pager);
+    free(table);
+}
+//5-2结束
+MetaResult Do_Meta_Command(InputBuffer* buffer_pointer,Table* table_pointer) {
+    if(strcmp(buffer_pointer->buffer,".exit") == 0) {
+        Close_Buffer(buffer_pointer);
+        db_close(table_pointer);
+        exit(EXIT_SUCCESS);
+    } else
+        return META_COMMAND_UNRECOGNIZED;
+}
 
 ExecuteResult Execute_Insert_Statement(Statement* statement, Table* table_pointer) {
     if(table_pointer->row_total > TABLE_MAX_ROWS) {
@@ -294,8 +401,24 @@ ExecuteResult Execute_Statement_After_Converting(Statement* statement_pointer, T
 
 //1:修改Part2中的Convert_Input_Statement函数
 
+/*
+ * Part5 将内存的页输出到硬盘的file中持久化存储
+ * 1：将原来的void* pages[] , 增加file_describe file_length,修改对应Table,3-2中增加新的函数
+ * 2: 关闭数据库时，将数据库中的页输出到file文件
+ */
+//1 在3-2中增加函数三个 create——table create——pager db——close
+//2 在3-4中增加函数两个 page——flush db——close
+//3 修改3-3中的serialize memcpy -->strncpy
+
+
+
+
 int main(int argc, char* argv[]) {
-    Table* table_pointer = Create_Table();
+    if(argc < 2) {
+        printf("Must supply a database filename");
+        exit(EXIT_FAILURE);
+    }
+    Table* table_pointer = Create_Table(argv[1]);
     InputBuffer* buffer_pointer = Create_Input_Buffer();
 
     while(true) {
@@ -324,10 +447,6 @@ int main(int argc, char* argv[]) {
                 printf("Unrecognized input order %s",buffer_pointer->buffer);
                 continue;
         }
-
-//        printf("??input:%s??\n",buffer_pointer->buffer);
-//        printf("parse:%d %s %s\n",statement.row_to_insert.ID,statement.row_to_insert.username,statement.row_to_insert.email);
-//        printf("%d\n",statement.statementType);
         switch(Execute_Statement_After_Converting(&statement,table_pointer)) {
             case(EXECUTE_SUCCESS):
                 printf("Executed.\n");
